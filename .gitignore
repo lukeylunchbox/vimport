@@ -16,4 +16,7 @@
 /node_modules
 /yarn-error.log
 
+.env
+.env.*
+
 .byebug_history
