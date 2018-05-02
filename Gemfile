@@ -5,6 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'image_processing', '~> 1.2'
+gem 'country-select', '~> 1.1', '>= 1.1.1'
+gem 'mailgun_rails', '~> 0.9.0'
+gem 'stripe', '~> 3.13'
+gem 'shrine', '~> 2.11'
+gem 'pundit', '~> 1.1'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
@@ -40,6 +46,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
+  gem 'dotenv-rails', '~> 2.4'
 end
 
 group :development do
