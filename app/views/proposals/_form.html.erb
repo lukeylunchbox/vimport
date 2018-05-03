@@ -47,34 +47,29 @@
   </div>
 
   <div class="field">
-    <%= form.label :img1_data %>
+    <%= form.label :"Image" %>
     <%= form.text_area :img1_data, id: :proposal_img1_data %>
   </div>
 
   <div class="field">
-    <%= form.label :img2_data %>
+    <%= form.label :"Image 2" %>
     <%= form.text_area :img2_data, id: :proposal_img2_data %>
   </div>
 
   <div class="field">
-    <%= form.label :img3_data %>
+    <%= form.label :"Image 3" %>
     <%= form.text_area :img3_data, id: :proposal_img3_data %>
-  </div>
-
-  <div class="field">
-    <%= form.label :User_id %>
-    <%= form.text_field :User_id, id: :proposal_User_id %>
   </div>
 
   <%# <div class="field"> %>
     <%# <%= form.label :Category_id %> 
     <%# <%= form.text_field :Category_id, id: :proposal_Category_id %> 
   <%# </div> %>
+  
   <div class="field">
   <%= form.label "Category" %>
-  <%= form.collection_select(:category_id, Category.all, :id, :label ) %>
+  <%= form.collection_select(:category_id, Category.all, :id, :label) %>
   </div>
-
 
   <div class="actions">
     <%= form.submit %>
