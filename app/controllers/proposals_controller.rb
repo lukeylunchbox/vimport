@@ -4,7 +4,7 @@ class ProposalsController < ApplicationController
   # GET /proposals
   # GET /proposals.json
   def index
-    @proposals = Proposal.all
+    @proposals = Proposal.where(category_id: params[:category])
   end
 
   # GET /proposals/1

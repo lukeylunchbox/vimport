@@ -1,4 +1,4 @@
 class Proposal < ApplicationRecord
-  belongs_to :User
-  belongs_to :Category
+  belongs_to :user
+  has_one :category
 end

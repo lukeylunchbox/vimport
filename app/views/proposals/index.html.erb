@@ -34,8 +34,8 @@
         <td><%= proposal.img1_data %></td>
         <td><%= proposal.img2_data %></td>
         <td><%= proposal.img3_data %></td>
-        <td><%= proposal.User %></td>
-        <td><%= proposal.Category %></td>
+        <td><%= proposal.user_id %></td>
+        <td><%= proposal.category_id %></td>
         <td><%= link_to 'Show', proposal %></td>
         <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
         <td><%= link_to 'Destroy', proposal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
