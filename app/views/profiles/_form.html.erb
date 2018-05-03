@@ -1,0 +1,102 @@
+<%= form_with(model: profile, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :profile_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :profile_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_street_number %>
+    <%= form.text_field :home_street_number, id: :profile_home_street_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_street_name %>
+    <%= form.text_field :home_street_name, id: :profile_home_street_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_suburb %>
+    <%= form.text_field :home_suburb, id: :profile_home_suburb %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_city %>
+    <%= form.text_field :home_city, id: :profile_home_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_state %>
+    <%= form.text_field :home_state, id: :profile_home_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_post_code %>
+    <%= form.text_field :home_post_code, id: :profile_home_post_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_country %>
+    <%= form.text_field :home_country, id: :profile_home_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ship_street_number %>
+    <%= form.text_field :ship_street_number, id: :profile_ship_street_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ship_street_name %>
+    <%= form.text_field :ship_street_name, id: :profile_ship_street_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ship_suburb %>
+    <%= form.text_field :ship_suburb, id: :profile_ship_suburb %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ship_city %>
+    <%= form.text_field :ship_city, id: :profile_ship_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ship_state %>
+    <%= form.text_field :ship_state, id: :profile_ship_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ship_post_code %>
+    <%= form.text_field :ship_post_code, id: :profile_ship_post_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ship_country %>
+    <%= form.text_field :ship_country, id: :profile_ship_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :profile_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

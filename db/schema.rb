@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503015214) do
+ActiveRecord::Schema.define(version: 20180503051525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,29 @@ ActiveRecord::Schema.define(version: 20180503015214) do
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "home_street_number"
+    t.string "home_street_name"
+    t.string "home_suburb"
+    t.string "home_city"
+    t.string "home_state"
+    t.string "home_post_code"
+    t.string "home_country"
+    t.string "ship_street_number"
+    t.string "ship_street_name"
+    t.string "ship_suburb"
+    t.string "ship_city"
+    t.string "ship_state"
+    t.string "ship_post_code"
+    t.string "ship_country"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -57,6 +80,7 @@ ActiveRecord::Schema.define(version: 20180503015214) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "profiles", "users"
   add_foreign_key "proposals", "categories"
   add_foreign_key "proposals", "users"
 end
