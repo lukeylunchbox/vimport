@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# category = Category.create!([{label: "machinery"}])
+# category = Category.create!([{label: "building materials"}, {label: "consumer electronics"}, {label: "home & garden"}, {label: "apparel"}, {label: "packaging & printing"}, {label: "sports & entertainment"}, {label: "automotive & motorcycles"}])
 
 
 

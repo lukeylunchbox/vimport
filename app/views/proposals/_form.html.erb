@@ -66,10 +66,15 @@
     <%= form.text_field :User_id, id: :proposal_User_id %>
   </div>
 
+  <%# <div class="field"> %>
+    <%# <%= form.label :Category_id %> 
+    <%# <%= form.text_field :Category_id, id: :proposal_Category_id %> 
+  <%# </div> %>
   <div class="field">
-    <%= form.label :Category_id %>
-    <%= form.text_field :Category_id, id: :proposal_Category_id %>
+  <%= form.label "Category" %>
+  <%= form.collection_select(:category_id, Category.all, :id, :label ) %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>
