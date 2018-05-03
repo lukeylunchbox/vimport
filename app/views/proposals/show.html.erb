@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product name:</strong>
+  <%= @proposal.product_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @proposal.description %>
+</p>
+
+<p>
+  <strong>Cost per unit:</strong>
+  <%= @proposal.cost_per_unit %>
+</p>
+
+<p>
+  <strong>Weight per unit:</strong>
+  <%= @proposal.weight_per_unit %>
+</p>
+
+<p>
+  <strong>Min order quantity:</strong>
+  <%= @proposal.min_order_quantity %>
+</p>
+
+<p>
+  <strong>Full order quantity:</strong>
+  <%= @proposal.full_order_quantity %>
+</p>
+
+<p>
+  <strong>Eta:</strong>
+  <%= @proposal.eta %>
+</p>
+
+<p>
+  <strong>Img1 data:</strong>
+  <%= @proposal.img1_data %>
+</p>
+
+<p>
+  <strong>Img2 data:</strong>
+  <%= @proposal.img2_data %>
+</p>
+
+<p>
+  <strong>Img3 data:</strong>
+  <%= @proposal.img3_data %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @proposal.User %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @proposal.Category %>
+</p>
+
+<%= link_to 'Edit', edit_proposal_path(@proposal) %> |
+<%= link_to 'Back', proposals_path %>
