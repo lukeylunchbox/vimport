@@ -31,9 +31,22 @@
         <td><%= proposal.min_order_quantity %></td>
         <td><%= proposal.full_order_quantity %></td>
         <td><%= proposal.eta %></td>
-        <td><%= proposal.img1_data %></td>
-        <td><%= proposal.img2_data %></td>
-        <td><%= proposal.img3_data %></td>
+        <td><%if proposal.img1_url%>
+            <%= image_tag proposal.img1_url, size: '260x180'%>
+            <%else%>
+            No images
+            <%end%>
+        </td>
+        <td><%if proposal.img2_url%>
+            <%= image_tag proposal.img2_url, size: '260x180' %>
+            <%else%>
+            <%end%>
+        </td>
+        <td><%if proposal.img3_url%>
+            <%= image_tag proposal.img3_url, size: '260x180' %>
+            <%else%>
+            <%end%>
+        </td>
         <td><%= proposal.user_id %></td>
         <td><%= proposal.category_id %></td>
         <td><%= link_to 'Show', proposal %></td>

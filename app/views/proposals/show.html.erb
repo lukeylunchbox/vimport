@@ -35,30 +35,25 @@
   <%= @proposal.eta %>
 </p>
 
-<p>
-  <strong>Img1 data:</strong>
+<p> 
   <%if @proposal.img1_url%>
-  <%= image_tag @proposal.img1_url, size: '260x180'%>
+  <%= image_tag @proposal.img1_url, size: '500x300'%>
   <%else%>
   "No image"
   <%end%>
 </p>
 
 <p>
-  <strong>Img2 data:</strong>
   <%if @proposal.img2_url%>
-  <%= image_tag @proposal.img2_url, size: '260x180' %>
+  <%= image_tag @proposal.img2_url, size: '500x300' %>
   <%else%>
-  "No image"
   <%end%>
 </p>
 
 <p>
-  <strong>Img3 data:</strong>
   <%if @proposal.img3_url%>
-  <%= image_tag @proposal.img3_url, size: '260x180' %>
+  <%= image_tag @proposal.img3_url, size: '500x300' %>
   <%else%>
-  "No image"
   <%end%>
 </p>
 
