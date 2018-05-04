@@ -46,20 +46,39 @@
     <%= form.text_field :eta, id: :proposal_eta %>
   </div>
 
-  <div class="field">
-    <%= form.label :"Image" %>
-    <%= form.text_area :img1_data, id: :proposal_img1_data %>
-  </div>
+<div class="field">
+ <%= form.hidden_field :img1, value: @proposal.cached_img1_data %>
+ <%= form.file_field :img1 %>
+</div>
 
-  <div class="field">
-    <%= form.label :"Image 2" %>
-    <%= form.text_area :img2_data, id: :proposal_img2_data %>
-  </div>
+<div class="field">
+ <%= form.hidden_field :img2, value: @proposal.cached_img2_data %>
+ <%= form.file_field :img2 %>
+</div>
 
-  <div class="field">
-    <%= form.label :"Image 3" %>
-    <%= form.text_area :img3_data, id: :proposal_img3_data %>
-  </div>
+<div class="field">
+ <%= form.hidden_field :img3, value: @proposal.cached_img3_data %>
+ <%= form.file_field :img3 %>
+</div>
+
+
+
+
+
+  <%# <div class="field"> %>
+    <%# <%= form.label :"Image" %> 
+    <%# <%= form.text_area :img1_data, id: :proposal_img1_data %> 
+  <%# </div> %>
+
+  <%# <div class="field"> %>
+    <%# <%= form.label :"Image 2" %> 
+    <%# <%= form.text_area :img2_data, id: :proposal_img2_data %> 
+  <%# </div> %>
+
+  <%# <div class="field"> %>
+    <%# <%= form.label :"Image 3" %> 
+    <%# <%= form.text_area :img3_data, id: :proposal_img3_data %> 
+  <%# </div> %>
 
   <%# <div class="field"> %>
     <%# <%= form.label :Category_id %> 

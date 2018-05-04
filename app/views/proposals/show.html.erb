@@ -37,17 +37,29 @@
 
 <p>
   <strong>Img1 data:</strong>
-  <%= @proposal.img1_data %>
+  <%if @proposal.img1_url%>
+  <%= image_tag @proposal.img1_url, size: '260x180'%>
+  <%else%>
+  "No image"
+  <%end%>
 </p>
 
 <p>
   <strong>Img2 data:</strong>
-  <%= @proposal.img2_data %>
+  <%if @proposal.img2_url%>
+  <%= image_tag @proposal.img2_url, size: '260x180' %>
+  <%else%>
+  "No image"
+  <%end%>
 </p>
 
 <p>
   <strong>Img3 data:</strong>
-  <%= @proposal.img3_data %>
+  <%if @proposal.img3_url%>
+  <%= image_tag @proposal.img3_url, size: '260x180' %>
+  <%else%>
+  "No image"
+  <%end%>
 </p>
 
 <p>

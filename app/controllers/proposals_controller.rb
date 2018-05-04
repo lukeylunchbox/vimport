@@ -70,6 +70,6 @@ class ProposalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proposal_params
-      params.require(:proposal).permit(:product_name, :description, :cost_per_unit, :weight_per_unit, :min_order_quantity, :full_order_quantity, :eta, :img1_data, :img2_data, :img3_data, :category_id)
+      params.require(:proposal).permit(:product_name, :description, :cost_per_unit, :weight_per_unit, :min_order_quantity, :full_order_quantity, :eta, :img1, :img2, :img3, :category_id)
     end
 end
