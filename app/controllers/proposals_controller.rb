@@ -12,6 +12,11 @@ class ProposalsController < ApplicationController
   def show
   end
 
+  def create_order
+    Order.create!([{user_id: current_user.id , proposal_id: params[:id], order_quantity: params[:order_quantity], charge_identifier: "", amount_paid: (params[:order_quantity].to_f*Proposal.find(params[:id]).cost_per_unit)}])
+    redirect_to '/'
+  end
+
   # GET /proposals/new
   def new
     @proposal = Proposal.new

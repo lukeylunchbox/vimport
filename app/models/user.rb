@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   after_create :create_profile
   has_many :proposals
+  has_many :orders
   has_one :profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
