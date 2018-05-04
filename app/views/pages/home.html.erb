@@ -1,4 +1,4 @@
-<h1>Pages#home</h1>
+<h1>Vimport</h1>
 
 
 <h2>Categories</h2>
@@ -27,6 +27,63 @@
 <%= link_to "Automotive and Motorcycles", all_proposals_with_category_path(category: 8)%>
 </li>   
 
+
+ <h1>Latest Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product name</th>
+      <th>Description</th>
+      <th>Cost per unit</th>
+      <th>Weight per unit</th>
+      <th>Min order quantity</th>
+      <th>Full order quantity</th>
+      <th>Eta</th>
+      <th>Img1 data</th>
+      <th>Img2 data</th>
+      <th>Img3 data</th>
+      <th>User</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proposals.last(10).each do |proposal| %>
+      <tr>
+        <td><%= proposal.product_name %></td>
+        <td><%= proposal.description %></td>
+        <td><%= proposal.cost_per_unit %></td>
+        <td><%= proposal.weight_per_unit %></td>
+        <td><%= proposal.min_order_quantity %></td>
+        <td><%= proposal.full_order_quantity %></td>
+        <td><%= proposal.eta %></td>
+        <td><%if proposal.img1_url%>
+            <%= image_tag proposal.img1_url, size: '260x180'%>
+            <%else%>
+            No images
+            <%end%>
+        </td>
+        <td><%if proposal.img2_url%>
+            <%= image_tag proposal.img2_url, size: '260x180' %>
+            <%else%>
+            <%end%>
+        </td>
+        <td><%if proposal.img3_url%>
+            <%= image_tag proposal.img3_url, size: '260x180' %>
+            <%else%>
+            <%end%>
+        </td>
+        <td><%= proposal.user_id %></td>
+        <td><%= proposal.category_id %></td>
+        <td><%= link_to 'Show', proposal %></td>
+        <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
+        <td><%= link_to 'Destroy', proposal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <footer>
 <%= link_to "About", '/pages/about'%>
