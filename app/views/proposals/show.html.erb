@@ -1,3 +1,4 @@
+   
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -67,7 +68,6 @@
   <%= @proposal.category_id %>
 </p>
 
-<%# <% if @proposal.full_order_quantity < @order.order_quantity %> %>
  <%= form_tag place_order_path(id: @proposal.id, charge_identifier: 1), method: :post do %>
    <p><%= label_tag 'Enter order quantity' %></p>
    <p><%= number_field_tag 'order_quantity' %></p>

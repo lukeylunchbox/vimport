@@ -13,11 +13,12 @@ class ProposalsController < ApplicationController
   end
 
   def create_order
-    if params[:order_quantity].to_f < Proposal.find(params[:id]).full_order_quantity
-    Order.create!([{user_id: current_user.id , proposal_id: params[:id], order_quantity: params[:order_quantity], charge_identifier: "", amount_paid: (params[:order_quantity].to_f*Proposal.find(params[:id]).cost_per_unit)}])
+    if params[:order_quantity].to_f <= Proposal.find(params[:id]).full_order_quantity
+    @order = Order.create!([{user_id: current_user.id , proposal_id: params[:id], order_quantity: params[:order_quantity], charge_identifier: "", amount_paid: (params[:order_quantity].to_f*Proposal.find(params[:id]).cost_per_unit)}])
     redirect_to '/'
     else 
-    redirect_to '/'
+      flash[:notice] = '********  Error, insufficient quantity remaining on proposal. *********'
+      redirect_to '/'
     end
   end
 
