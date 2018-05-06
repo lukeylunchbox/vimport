@@ -2,6 +2,15 @@ Rails.application.routes.draw do
   resources :profiles
   resources :proposals
   devise_for :users
+  resources :proposals do
+    member do
+      #/sneakers/1/charge
+      post 'charge'
+    end
+
+  end
+
+
   root 'pages#home'
 
   get 'pages/contact'
@@ -10,7 +19,7 @@ Rails.application.routes.draw do
 
   get '/all_proposals/:category', to: 'proposals#index', as: 'all_proposals_with_category'
 
-  post '/all_proposals', to: 'proposals#create_order', as: 'place_order'
+  post '/all_proposals/', to: 'proposals#create_order', as: 'place_order'
   
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

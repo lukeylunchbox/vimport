@@ -78,8 +78,10 @@
         <td><%= proposal.user_id %></td>
         <td><%= proposal.category_id %></td>
         <td><%= link_to 'Show', proposal %></td>
+        <% if policy(proposal).update? %>
         <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
         <td><%= link_to 'Destroy', proposal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
