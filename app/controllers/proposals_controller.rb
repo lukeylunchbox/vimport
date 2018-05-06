@@ -56,6 +56,9 @@ class ProposalsController < ApplicationController
         if params[:order_quantity].to_f <= Proposal.find(params[:id]).full_order_quantity - Order.where(proposal_id: Proposal.find(params[:id])).sum(:order_quantity)
             @order = Order.create!([{user_id: current_user.id , proposal_id: params[:id], order_quantity: params[:order_quantity], charge_identifier: "Unpaid", amount_paid: (params[:order_quantity].to_f*Proposal.find(params[:id]).cost_per_unit)}])
             redirect_to request.referrer
+              ModelMailer.new_order_notification(@order).deliver
+              # redirect_to @order
+
         else 
           flash[:notice] = '********  Error, insufficient quantity remaining on proposal, please reduce your order *********'
           redirect_to request.referrer

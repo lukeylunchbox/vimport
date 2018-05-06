@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9', require: 'mailgun'
 gem 'hirb', '~> 0.7.3'
 gem 'image_processing', '~> 1.2'
 gem 'country-select', '~> 1.1', '>= 1.1.1'
