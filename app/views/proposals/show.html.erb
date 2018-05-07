@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 
 <%if Order.exists?%>
-<%if Order.last.created_at > (Time.now - 30.seconds) && Order.last.user_id == current_user.id && Order.last.order_quantity >= @proposal.min_order_quantity %>
+<%if Order.where(user_id: current_user.id).last.created_at > (Time.now - 3.seconds) && Order.where(user_id: current_user.id).last.order_quantity >= @proposal.min_order_quantity %>
   <% if user_signed_in? %>
     <%= render 'charge_form', Proposal: @proposal, user: current_user %>
   <% else%>
@@ -99,7 +99,7 @@
 
 
 
-<% elsif Order.last.created_at < (Time.now - 20.second) %>
+<% elsif Order.last.created_at < (Time.now - 5.second) %>
 
 <p>
   <strong>Product name:</strong>

@@ -6,7 +6,7 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>amount $ <%= (Order.last.order_quantity)*(@proposal.cost_per_unit) %></span>
+      <span>amount $ <%= (Order.where(user_id: current_user.id).last.order_quantity)*(@proposal.cost_per_unit).to_i %></span>
     </label>
   </article>
 

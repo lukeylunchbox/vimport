@@ -4,6 +4,24 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #   api_key: ENV.fetch('MAILGUN_API'),
+  #   domain: ENV.fetch('MAILGUN_DOMAIN'),
+  # }
+
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'http://localhost:3000' }
+  # Mail gun
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: ENV.fetch('MAILGUN_API'),
+    domain: ENV.fetch('MAILGUN_DOMAIN'),
+  }
+
+
   config.cache_classes = false
 
   # Do not eager load code on boot.
@@ -53,14 +71,14 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "postmaster@sandbox502fb4e8974d407883f338d872647189.mailgun.org",
-    :port => 587,
-    :domain => "sandbox502fb4e8974d407883f338d872647189.mailgun.org.mailgun.org",
-    :user_name => "postmaster@sandbox502fb4e8974d407883f338d872647189.mailgun.org.mailgun.org",
-    :password => "stradic25"
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   :authentication => :plain,
+  #   :address => "postmaster@sandbox502fb4e8974d407883f338d872647189.mailgun.org",
+  #   :port => 587,
+  #   :domain => "sandbox502fb4e8974d407883f338d872647189.mailgun.org.mailgun.org",
+  #   :user_name => "postmaster@sandbox502fb4e8974d407883f338d872647189.mailgun.org.mailgun.org",
+  #   :password => "stradic25"
+# }
 
 end
