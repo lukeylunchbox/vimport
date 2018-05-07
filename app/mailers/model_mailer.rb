@@ -1,15 +1,5 @@
-# class ModelMailer < ApplicationMailer
+
    
-#   def new_order_notification(order)
-#       email = 'l.colcott@live.com'
-#       # @user = current_user.id
-#       @order = Order.last
-#       # @message = Order.last.charge_identifier
-#       date = Time.now.strftime("%B %d, %Y, %A")
-#       subject = "New user message #{date}"
-#       mail(to: 'l.colcott@live.com', subject: subject)    
-#   end
-# end
 
 
 # class ModelMailer < ActionMailer::Base
