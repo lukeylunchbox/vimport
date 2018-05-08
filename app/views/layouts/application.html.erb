@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Vimport</title>
     <%= csrf_meta_tags %>
 
@@ -8,9 +9,17 @@
     <%= stylesheet_link_tag "https://checkout.stripe.com/v3/checkout/button.css"%>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-
+   <div id="navbar">
+            <a href="#landing">Home</a>
+             |
+             <a href="#about-header">About</a>
+             |
+             <a href="#portfolio-header">Categories</a>
+             |
+             <a href="#contact">Contact</a>
+  </div>
+    
    <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
     <%= yield %>

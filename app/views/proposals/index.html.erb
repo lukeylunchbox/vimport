@@ -1,36 +1,36 @@
 <p id="notice"><%= notice %></p>
-
+<div id="home">
 <h1>Proposals</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Product name</th>
-      <th>Description</th>
-      <th>Cost per unit</th>
-      <th>Weight per unit</th>
-      <th>Min order quantity</th>
-      <th>Full order quantity</th>
-      <th>Eta</th>
-      <th>Img1 data</th>
-      <th>Img2 data</th>
-      <th>Img3 data</th>
-      <th>User</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @proposals.each do |proposal| %>
-      <tr>
+     <div class="wrapper">
+<table>
+  <tbody>
+      
+        <th>Product</th>
         <td><%= proposal.product_name %></td>
-        <td><%= proposal.description %></td>
+      </tr>
+       <tr>
+        <th>Cost per unit</th>
         <td><%= proposal.cost_per_unit %></td>
+      </tr>
+      <tr>
+        <th>Weight per unit</th>
         <td><%= proposal.weight_per_unit %></td>
+      </tr>
+      <tr>
+         <th>Min order quantity</th>
         <td><%= proposal.min_order_quantity %></td>
+      </tr>
+      <tr>
+        <th>Full order quantity</th>
         <td><%= proposal.full_order_quantity %></td>
+      </tr>
+      <tr>
+        <th>Eta</th>
         <td><%= proposal.eta %></td>
+      </tr>
+      <tr>
         <td><%if proposal.img1_url%>
             <%= image_tag proposal.img1_url, size: '260x180'%>
             <%else%>
@@ -42,23 +42,21 @@
             <%else%>
             <%end%>
         </td>
-        <td><%if proposal.img3_url%>
-            <%= image_tag proposal.img3_url, size: '260x180' %>
-            <%else%>
-            <%end%>
-        </td>
-        <td><%= proposal.user_id %></td>
-        <td><%= proposal.category_id %></td>
+      </tr>
+        
         <td><%= link_to 'Show', proposal %></td>
         <% if policy(proposal).update? %>
         <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
         <%end%>
-        <td><%= link_to 'Destroy', proposal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
-
+  
+        <p class="description">Description</p>
+        <p class="description"><%= proposal.description %></p>
+        
+    </div>
+    <% end %>
 <br>
-
+  </div>
 <%= link_to 'New Proposal', new_proposal_path %>

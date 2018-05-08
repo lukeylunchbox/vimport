@@ -1,93 +1,87 @@
-<h1>Vimport</h1>
-
-
+<div class="hero">
+</div>
+<section id="home">
 <h2>Categories</h2>
-<li>
-<%= link_to "Machinery", all_proposals_with_category_path(category: 1)%>
-</li>
-<li>
-<%= link_to "Building Materials", all_proposals_with_category_path(category: 2)%>
-</li>
-<li>
-<%= link_to "Consumer Electronics", all_proposals_with_category_path(category: 3)%>
-</li>
-<li>
-<%= link_to "Home & Garden", all_proposals_with_category_path(category: 4)%>
-</li>
-<li>
-<%= link_to "Apparel", all_proposals_with_category_path(category: 5)%>
-</li>
-<li>
-<%= link_to "Packaging & Printing", all_proposals_with_category_path(category: 6)%>
-</li>
-<li>
-<%= link_to "Sports & Entertainment", all_proposals_with_category_path(category: 7)%>
-</li>
-<li>
-<%= link_to "Automotive and Motorcycles", all_proposals_with_category_path(category: 8)%>
-</li>   
+<div class = "category">
+
+ <%# link_to "Machinery", all_proposals_with_category_path(category: 1)%>
+<%= link_to image_tag('robotic-arm.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 1), title: 'Machinery' %>
+<%# <%= link_to "Building Materials", all_proposals_with_category_path(category: 2)%> 
+<%= link_to image_tag('welder.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 2), title: 'Building Materials' %>
+
+<%= link_to image_tag('consumer_electronics.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 3), title: 'Consumer Electronics' %>
+
+<%# <%= link_to "Home & Garden", all_proposals_with_category_path(category: 4)%> 
+<%= link_to image_tag('house.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 4), title: 'Home & Garden' %>
+
+<%# <%= link_to "Apparel", all_proposals_with_category_path(category: 5)%> 
+<%= link_to image_tag('fashion.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 5), title: 'Apparel' %>
+
+<%# <%= link_to "Packaging & Printing", all_proposals_with_category_path(category: 6)%> 
+<%= link_to image_tag('box.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 6), title: 'Packaging and Printing' %>
+
+<%# <%= link_to "Sports & Entertainment", all_proposals_with_category_path(category: 7)%> 
+<%= link_to image_tag('target.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 7), title: 'Sports & Entertainment' %>
+
+<%# <%= link_to "Automotive and Motorcycles", all_proposals_with_category_path(category: 8)%> 
+<%= link_to image_tag('car-parts.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 8), title: 'Automotive & Motorcycles' %>
+
+   
+</div>
+<div class="content">
 
 
+<div class="posts">
  <h1>Latest Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Product name</th>
-      <th>Description</th>
-      <th>Cost per unit</th>
-      <th>Weight per unit</th>
-      <th>Min order quantity</th>
-      <th>Full order quantity</th>
-      <th>Eta</th>
-      <th>Img1 data</th>
-      <th>Img2 data</th>
-      <th>Img3 data</th>
-      <th>User</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @proposals.last(10).each do |proposal| %>
+     <div class="wrapper">
+<table>
+      <%# <th colspan="3"></th> %>
+  <tbody>
+      
       <tr>
+        <th>Product name</th>
         <td><%= proposal.product_name %></td>
-        <td><%= proposal.description %></td>
+      </tr>
+      <tr>
+        <th>Cost per unit</th>
         <td><%= proposal.cost_per_unit %></td>
-        <td><%= proposal.weight_per_unit %></td>
+      </tr>
+      <tr>
+         <th>Min order quantity</th>
         <td><%= proposal.min_order_quantity %></td>
-        <td><%= proposal.full_order_quantity %></td>
+      </tr>
+      <tr>
+        <th>Eta</th>
         <td><%= proposal.eta %></td>
+      </tr>
+      <tr>
+          <th>Category</th>
+           <td><%= proposal.category_id %></td>
+        </tr>
+      <tr>
         <td><%if proposal.img1_url%>
-            <%= image_tag proposal.img1_url, size: '260x180'%>
+            <%= image_tag proposal.img1_url%>
             <%else%>
             No images
             <%end%>
         </td>
         <td><%if proposal.img2_url%>
-            <%= image_tag proposal.img2_url, size: '260x180' %>
+            <%= image_tag proposal.img2_url %>
             <%else%>
             <%end%>
         </td>
-        <td><%if proposal.img3_url%>
-            <%= image_tag proposal.img3_url, size: '260x180' %>
-            <%else%>
-            <%end%>
-        </td>
-        <td><%= proposal.user_id %></td>
-        <td><%= proposal.category_id %></td>
+         </tr> 
         <td><%= link_to 'Show', proposal %></td>
-        <% if policy(proposal).update? %>
-        <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
-        <td><%= link_to 'Destroy', proposal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
       </tr>
-    <% end %>
   </tbody>
 </table>
-
+ </div> 
+    <% end %>
+</div>
 <footer>
 <%= link_to "About", '/pages/about'%>
 <%= link_to "Contact", '/pages/contact'%>
 </footer>
+</section>
+</div>

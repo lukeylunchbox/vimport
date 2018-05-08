@@ -14,8 +14,9 @@ class ProposalsController < ApplicationController
     @orders = Order.where(proposal_id: @proposal.id)
     @items_remaining = @proposal.full_order_quantity - @orders.sum(:order_quantity)
     if Order.where(user_id: current_user.id).exists?
-      if Order.where(user_id: current_user.id).last.created_at < (Time.now - 10.seconds) && Order.where(user_id: current_user.id).last.charge_identifier=="Unpaid"
-        Order.where(user_id: current_user.id).last.destroy
+      if Order.where(user_id: current_user.id).last.created_at < (Time.now - 10.seconds) && 
+         Order.where(user_id: current_user.id).last.charge_identifier=="Unpaid"
+         Order.where(user_id: current_user.id).last.destroy
       end
     end
     
@@ -43,7 +44,7 @@ class ProposalsController < ApplicationController
           else 
         flash[:notice] = 'Error'
         redirect_back fallback_location: '/'
-        Order.last.destroy
+        Order.where(user_id: current_user.id).last.destroy
           end
         end        
         # rescue Stripe::CardError => e
@@ -56,7 +57,8 @@ class ProposalsController < ApplicationController
           flash[:notice] = '********  Error, Your order is below the minimum order quantity *********'
         end
 
-        if params[:order_quantity].to_f > Proposal.find(params[:id]).min_order_quantity && params[:order_quantity].to_f <= Proposal.find(params[:id]).full_order_quantity - Order.where(proposal_id: Proposal.find(params[:id])).sum(:order_quantity)
+        if params[:order_quantity].to_f > Proposal.find(params[:id]).min_order_quantity && 
+          params[:order_quantity].to_f <= Proposal.find(params[:id]).full_order_quantity - Order.where(proposal_id: Proposal.find(params[:id])).sum(:order_quantity)
             @order = Order.create!([{user_id: current_user.id , proposal_id: params[:id], order_quantity: params[:order_quantity], charge_identifier: "Unpaid", amount_paid: (params[:order_quantity].to_f*Proposal.find(params[:id]).cost_per_unit)}])
             ModelMailer.new_order_notification(@order).deliver_now
             redirect_to request.referrer

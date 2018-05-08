@@ -15,8 +15,6 @@ end
 
 
 
-
-
 # class MessageMailer < ApplicationMailer
 #     require 'mailgun'
     

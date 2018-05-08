@@ -1,3 +1,28 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// body  {
+//     background-image: url("containers.jpg");
+//     background-size: 100%;
+//     background-repeat: no-repeat;
+//     background-attachment: fixed;
+//     overflow: auto;
+h1{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.description{
+    display: flex;
+    justify-content: center;
+}
