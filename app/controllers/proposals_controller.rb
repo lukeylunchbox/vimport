@@ -54,7 +54,8 @@ class ProposalsController < ApplicationController
   def create_order
     @orders = Order.all
     @profile = Profile.where(user_id: current_user.id).last.ship_street_number
-      if @profile != ""
+    if Profile.where(user_id: current_user.id).exists?
+     if @profile != ""
         if  params[:order_quantity].to_f < Proposal.find(params[:id]).min_order_quantity
           flash[:notice] = '********  Error, Your order is below the minimum order quantity *********'
         end
@@ -70,6 +71,7 @@ class ProposalsController < ApplicationController
           flash[:notice] = '********  Error, insufficient quantity remaining on proposal, please reduce your order *********'
           redirect_to request.referrer
         end
+      end
       else
          flash[:notice] = '********   Please complete your profile before placing an order.   ********'
         redirect_to "/profiles/#{current_user.id}/edit"
