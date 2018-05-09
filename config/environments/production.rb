@@ -26,6 +26,8 @@ Rails.application.configure do
     domain: ENV.fetch('MAILGUN_DOMAIN'),
   }
 
+  config.action_mailer.default_url_options = { 
+    host: host
 
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
