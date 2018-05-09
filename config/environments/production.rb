@@ -15,7 +15,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.asset_host = 'http://www.vimport.herokuapps.com'
+  # config.action_mailer.asset_host = 'http://www.vimport.herokuapp.com'
 
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
