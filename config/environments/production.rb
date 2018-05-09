@@ -28,7 +28,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { 
     host: host
-
+  }
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
