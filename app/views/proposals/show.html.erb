@@ -88,7 +88,7 @@
   <%= @proposal.description %>
 </p>
 
-<% if @proposal.url %>
+<% if @proposal.url != "" %>
 <iframe width="1000" height="800", sandbox="allow-forms allow-same-origin allow-scripts" src="<%= @proposal.url %>"</iframe>
 <%end%>
 
@@ -145,6 +145,7 @@
   <%= @proposal.eta %>
 </p>
 
+
 <p> 
   <%if @proposal.img1_url%>
   <%= image_tag @proposal.img1_url, size: '500x300'%>
@@ -167,15 +168,10 @@
   <%end%>
 </p>
 
+
 <p>
   <strong>Description:</strong>
   <%= @proposal.description %>
-</p>
-
-<p>
-<% if @proposal.url %>
-<iframe width="1000" height="800", sandbox="allow-forms allow-same-origin allow-scripts" src="<%= @proposal.url %>"</iframe>
-<%end%>
 </p>
 
 
@@ -188,3 +184,10 @@
 <%= link_to 'Back', "/all_proposals/#{@proposal.category_id}" %> |
 </div>
 
+<div class="frame">
+<p>
+<% if @proposal.url != "" %>
+<iframe width="1000" height="800", sandbox="allow-forms allow-same-origin allow-scripts" src="<%= @proposal.url %>"</iframe>
+<%end%>
+</p>
+</div>

@@ -247,10 +247,10 @@ th {
     margin-top: 200px;
 }
 
-iframe{
+/* iframe{
     display: flex;
     justify-content: flex-end;
-}
+} */
 
 .profile-form{
     display: flex;
@@ -263,5 +263,11 @@ iframe{
 
 h3{ 
  padding-bottom: 15px;
+}
+
+.frame
+{
+display: flex;
+justify-content: center;
 }
 
