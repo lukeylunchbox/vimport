@@ -88,10 +88,13 @@
   <%= @proposal.description %>
 </p>
 
+ <div class="frame">
+<p>
 <% if @proposal.url != "" && @proposal.url != nil %>
 <iframe width="1000" height="800", sandbox="allow-forms allow-same-origin allow-scripts" src="<%= @proposal.url %>"</iframe>
 <%end%>
-
+</p>
+</div>
 
  <%= form_tag place_order_path(id: @proposal.id, charge_identifier: 1), method: :post do %>
    <p><%= label_tag 'Enter order quantity' %></p>
