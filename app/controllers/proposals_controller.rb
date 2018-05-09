@@ -71,7 +71,7 @@ class ProposalsController < ApplicationController
           redirect_to request.referrer
         end
       else
-         flash[:notice] = 'Please complete your profile before placing an order.'
+         flash[:notice] = '********   Please complete your profile before placing an order.   ********'
         redirect_to "/profiles/#{current_user.id}/edit"
       end   
   end

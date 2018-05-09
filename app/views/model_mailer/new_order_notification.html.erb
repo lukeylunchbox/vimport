@@ -1,5 +1,20 @@
-<h1>Model#new_order_notification</h1>
+
+<%= image_tag('vimport.jpg', width: '267', height: '169') %>
 
 <p>
-  find me in app/views/model_mailer/new_order_notification.html.erb
+  Thank you for shopping with Vimport
 </p>
+
+<p>
+Your order details are as follows;
+</p>
+
+<p>Product:</p>
+<p><%=Proposal.where(id: Order.last.proposal_id).last.product_name %></p>
+
+<p>Quantity Ordered:</p>
+<p><%=Order.last.order_quantity%></p>
+
+<p>Amount Paid:</p>
+<p><%=Order.last.amount_paid%></p>
+
