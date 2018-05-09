@@ -27,7 +27,7 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_url_options = { 
-    host: APP_HOST_NAME
+    host: ENV.fetch('APP_HOST_NAME')
   }
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
