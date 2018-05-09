@@ -88,7 +88,7 @@
   <%= @proposal.description %>
 </p>
 
-<% if @proposal.url != "" %>
+<% if @proposal.url != "" && @proposal.url != nil %>
 <iframe width="1000" height="800", sandbox="allow-forms allow-same-origin allow-scripts" src="<%= @proposal.url %>"</iframe>
 <%end%>
 
@@ -179,15 +179,15 @@
    <p><%= label_tag 'Enter order quantity' %></p>
    <p><%= number_field_tag 'order_quantity' %></p>
    <p><%= submit_tag 'Place Order' %></p>
- <% end %>
-<%end%>
-<%= link_to 'Back', "/all_proposals/#{@proposal.category_id}" %> |
-</div>
-
-<div class="frame">
+<% end %>
+   <div class="frame">
 <p>
-<% if @proposal.url != "" %>
+<% if @proposal.url != "" && @proposal.url != nil %>
 <iframe width="1000" height="800", sandbox="allow-forms allow-same-origin allow-scripts" src="<%= @proposal.url %>"</iframe>
 <%end%>
 </p>
+</div>
+ 
+<%end%>
+<%= link_to 'Back', "/all_proposals/#{@proposal.category_id}" %> |
 </div>
