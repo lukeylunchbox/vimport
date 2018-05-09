@@ -14,6 +14,9 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.serve_static_assets = true
+  config.assets.compile = true
+
   config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.asset_host = 'http://www.vimport.herokuapp.com'
 
@@ -39,7 +42,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  # config.assets.compile = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
