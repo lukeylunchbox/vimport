@@ -1,4 +1,4 @@
- <section id="contact">
+ <%# <section id="contact">
  <div class="container">
                   <form name="contact" method="POST">
             
@@ -15,5 +15,28 @@
                       <button id="send-button" type="submit">Send</button>
                     </p>
                   </form>
+                  
+</div>
+</div> %>
+
+<section id="contact">
+<div class="container">
+<%= form_for :contact do |f| %>
+<p>
+<span><%=f.label :name %></span>
+<%= f.text_field :name %>
+</p>
+<p>
+<span><%=f.label "Email" %></span>
+<%= f.text_field :user_email %>
+</p>
+<p>
+<span><%=f.label :message %></span>
+<%= f.text_field :message %>
+</p>
+<p id="send-button">
+<%=f.submit "Submit"%>
+</p>
+<%end%>
 </div>
 </div>

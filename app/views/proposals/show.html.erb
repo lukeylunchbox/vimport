@@ -1,19 +1,22 @@
    
 <p id="notice"><%= notice %></p>
-
+<div class="show">
+<div class="buy">
 <%if Order.exists?%>
-<%if Order.where(user_id: current_user.id).last.created_at > (Time.now - 3.seconds) && Order.where(user_id: current_user.id).last.order_quantity >= @proposal.min_order_quantity %>
+<%if Order.where(user_id: current_user.id).last.created_at > (Time.now - 10.seconds) && Order.where(user_id: current_user.id).last.order_quantity >= @proposal.min_order_quantity %>
   <% if user_signed_in? %>
     <%= render 'charge_form', Proposal: @proposal, user: current_user %>
   <% else%>
+  <div class="buy-button">
     <%= link_to new_user_registration_path, class: 'stripe-button-el' do %>
-    <span style="display: block; min-height: 30px;">Pay with Card</span>
+    <span style="display: block; min-height: 30px;">Pay Now</span>
+    </div>
   <%end%>
     <%end%>
 <%end%>
 
 <%end%>
-
+</div>
 <%if !Order.exists?%>
 
 <p>
@@ -21,10 +24,6 @@
   <%= @proposal.product_name %>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @proposal.description %>
-</p>
 <p>
   <strong>Cost per unit:</strong>
   <%= @proposal.cost_per_unit %>
@@ -80,20 +79,25 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @proposal.user_id %>
-
-</p>
-
-<p>
   <strong>Category:</strong>
   <%= @proposal.category_id %>
 </p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @proposal.description %>
+</p>
+
+<% if @proposal.url %>
+<%= content_tag(:iframe, '', src: @proposal.url, 
+                   width: 560, height: 315, frameborder: 0) %>
+<%end%>
+
+
  <%= form_tag place_order_path(id: @proposal.id, charge_identifier: 1), method: :post do %>
    <p><%= label_tag 'Enter order quantity' %></p>
    <p><%= number_field_tag 'order_quantity' %></p>
-   <p><%= submit_tag 'Commit to purchase' %></p>
+   <p><%= submit_tag 'Place Order' %></p>
  <% end %>
 
 
@@ -107,9 +111,11 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @proposal.description %>
+  <strong>Category:</strong>
+  <%= @proposal.category_id %>
 </p>
+
+
 <p>
   <strong>Cost per unit:</strong>
   <%= @proposal.cost_per_unit %>
@@ -163,22 +169,23 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @proposal.user_id %>
-
+  <strong>Description:</strong>
+  <%= @proposal.description %>
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @proposal.category_id %>
+<% if @proposal.url %>
+<iframe width="1000" height="800", sandbox="allow-forms allow-same-origin allow-scripts" src="<%= @proposal.url %>"</iframe>
+<%end%>
 </p>
+
 
  <%= form_tag place_order_path(id: @proposal.id, charge_identifier: 1), method: :post do %>
    <p><%= label_tag 'Enter order quantity' %></p>
    <p><%= number_field_tag 'order_quantity' %></p>
-   <p><%= submit_tag 'Commit to purchase' %></p>
+   <p><%= submit_tag 'Place Order' %></p>
  <% end %>
 <%end%>
-
 <%= link_to 'Back', "/all_proposals/#{@proposal.category_id}" %> |
+</div>
 

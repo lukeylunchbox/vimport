@@ -53,19 +53,27 @@ class ProposalsController < ApplicationController
 
   def create_order
     @orders = Order.all
+    @profile = Profile.where(user_id: current_user.id).last.ship_street_number
+      if @profile != ""
         if  params[:order_quantity].to_f < Proposal.find(params[:id]).min_order_quantity
           flash[:notice] = '********  Error, Your order is below the minimum order quantity *********'
         end
 
         if params[:order_quantity].to_f > Proposal.find(params[:id]).min_order_quantity && 
-          params[:order_quantity].to_f <= Proposal.find(params[:id]).full_order_quantity - Order.where(proposal_id: Proposal.find(params[:id])).sum(:order_quantity)
-            @order = Order.create!([{user_id: current_user.id , proposal_id: params[:id], order_quantity: params[:order_quantity], charge_identifier: "Unpaid", amount_paid: (params[:order_quantity].to_f*Proposal.find(params[:id]).cost_per_unit)}])
-            ModelMailer.new_order_notification(@order).deliver_now
-            redirect_to request.referrer
+          params[:order_quantity].to_f <= Proposal.find(params[:id]).full_order_quantity - 
+          Order.where(proposal_id: Proposal.find(params[:id])).sum(:order_quantity)
+          @order = Order.create!([{user_id: current_user.id , proposal_id: params[:id], 
+          order_quantity: params[:order_quantity], charge_identifier: "Unpaid", amount_paid: (params[:order_quantity].to_f*Proposal.find(params[:id]).cost_per_unit)}])
+          ModelMailer.new_order_notification(@order).deliver_now
+          redirect_to request.referrer
         else 
           flash[:notice] = '********  Error, insufficient quantity remaining on proposal, please reduce your order *********'
           redirect_to request.referrer
         end
+      else
+         flash[:notice] = 'Please complete your profile before placing an order.'
+        redirect_to "/profiles/#{current_user.id}/edit"
+      end   
   end
 
   # GET /proposals/new
@@ -131,6 +139,6 @@ class ProposalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proposal_params
-      params.require(:proposal).permit(:product_name, :description, :cost_per_unit, :weight_per_unit, :min_order_quantity, :full_order_quantity, :eta, :img1, :img2, :img3, :category_id)
+      params.require(:proposal).permit(:product_name, :description, :cost_per_unit, :weight_per_unit, :min_order_quantity, :full_order_quantity, :eta, :img1, :img2, :img3, :category_id, :url)
     end
 end

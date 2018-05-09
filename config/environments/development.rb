@@ -10,8 +10,8 @@ Rails.application.configure do
   #   api_key: ENV.fetch('MAILGUN_API'),
   #   domain: ENV.fetch('MAILGUN_DOMAIN'),
   # }
-
-  config.action_mailer.raise_delivery_errors = false
+  
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'http://localhost:3000' }
   # Mail gun

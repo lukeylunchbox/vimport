@@ -10,89 +10,93 @@
       </ul>
     </div>
   <% end %>
-  
-
+<div class=profile-form>
   <div class="field">
-    <%= form.label :first_name %>
+    <%= form.label "First Name" %>
     <%= form.text_field :first_name, id: :profile_first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
+    <%= form.label "Family Name" %>
     <%= form.text_field :last_name, id: :profile_last_name %>
   </div>
 
+  <h3>Residential Address</h3>
+
   <div class="field">
-    <%= form.label :home_street_number %>
+    <%= form.label "Street Number" %>
     <%= form.text_field :home_street_number, id: :profile_home_street_number %>
   </div>
 
   <div class="field">
-    <%= form.label :home_street_name %>
+    <%= form.label "Street Name" %>
     <%= form.text_field :home_street_name, id: :profile_home_street_name %>
   </div>
 
   <div class="field">
-    <%= form.label :home_suburb %>
+    <%= form.label "Suburb" %>
     <%= form.text_field :home_suburb, id: :profile_home_suburb %>
   </div>
 
   <div class="field">
-    <%= form.label :home_city %>
+    <%= form.label "City" %>
     <%= form.text_field :home_city, id: :profile_home_city %>
   </div>
 
   <div class="field">
-    <%= form.label :home_state %>
+    <%= form.label "State" %>
     <%= form.text_field :home_state, id: :profile_home_state %>
   </div>
 
   <div class="field">
-    <%= form.label :home_post_code %>
+    <%= form.label "Post Code" %>
     <%= form.text_field :home_post_code, id: :profile_home_post_code %>
   </div>
 
   <div class="field">
-    <%= form.label :home_country %>
-    <%= form.text_field :home_country, id: :profile_home_country %>
+    <%= form.label "Country" %>
+    <%= form.text_field :home_country, value: "Australia", id: :profile_home_country %>
   </div>
 
+  <h3>Shipping Address</h3>
+
   <div class="field">
-    <%= form.label :ship_street_number %>
+    <%= form.label "Street Number" %>
     <%= form.text_field :ship_street_number, id: :profile_ship_street_number %>
   </div>
 
   <div class="field">
-    <%= form.label :ship_street_name %>
+    <%= form.label "Street Name" %>
     <%= form.text_field :ship_street_name, id: :profile_ship_street_name %>
   </div>
 
   <div class="field">
-    <%= form.label :ship_suburb %>
+    <%= form.label "Suburb" %>
     <%= form.text_field :ship_suburb, id: :profile_ship_suburb %>
   </div>
 
   <div class="field">
-    <%= form.label :ship_city %>
+    <%= form.label "City" %>
     <%= form.text_field :ship_city, id: :profile_ship_city %>
   </div>
 
   <div class="field">
-    <%= form.label :ship_state %>
+    <%= form.label "State" %>
     <%= form.text_field :ship_state, id: :profile_ship_state %>
   </div>
 
   <div class="field">
-    <%= form.label :ship_post_code %>
+    <%= form.label "Post Code" %>
     <%= form.text_field :ship_post_code, id: :profile_ship_post_code %>
   </div>
 
   <div class="field">
-    <%= form.label :ship_country %>
-    <%= form.text_field :ship_country, id: :profile_ship_country %>
+    <%= form.label "Country" %>
+    <%= form.text_field :ship_country, value: "Australia", id: :profile_ship_country %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
+  </div>
   </div>
 <% end %>

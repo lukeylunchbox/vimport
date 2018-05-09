@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :proposals do
     member do
-      #/sneakers/1/charge
       post 'charge'
     end
 
@@ -21,7 +20,7 @@ Rails.application.routes.draw do
 
   post '/all_proposals/', to: 'proposals#create_order', as: 'place_order'
 
-  post '/contact', to: 'pages#contact_email'
+  post 'pages/contact', to: 'pages#contact_email'
   
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

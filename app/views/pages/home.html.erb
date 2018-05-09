@@ -1,10 +1,15 @@
 <div class="hero">
+<div class="title">
+<h1>Vimport</h1>
 </div>
+</div>
+ <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
 <section id="home">
 <h2>Categories</h2>
 <div class = "category">
-
  <%# link_to "Machinery", all_proposals_with_category_path(category: 1)%>
+ 
 <%= link_to image_tag('robotic-arm.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 1), title: 'Machinery' %>
 <%# <%= link_to "Building Materials", all_proposals_with_category_path(category: 2)%> 
 <%= link_to image_tag('welder.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 2), title: 'Building Materials' %>
@@ -25,9 +30,19 @@
 
 <%# <%= link_to "Automotive and Motorcycles", all_proposals_with_category_path(category: 8)%> 
 <%= link_to image_tag('car-parts.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 8), title: 'Automotive & Motorcycles' %>
-
-   
 </div>
+
+<%# <div class = "category-title">
+<p>Machinery</p>
+<p>Building Materials</p>
+<p>Consumer Electronics</p>
+<p>Home & Garden</p>
+<p>Apparel</p>
+<p>Packaging and Printing</p>
+<p>Sports & Entertainment</p>
+<p>Automotive & Motorcycles</p>
+</div> %>
+
 <div class="content">
 
 
@@ -81,7 +96,7 @@
 </div>
 <footer>
 <%= link_to "About", '/pages/about'%>
-<%= link_to "Contact", '/pages/contact'%>
+<%= link_to "Contact", '/pages/contact' %>
 </footer>
 </section>
 </div>

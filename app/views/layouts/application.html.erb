@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link href="https://fonts.googleapis.com/css?family=Play|Roboto+Slab" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Vimport</title>
     <%= csrf_meta_tags %>
@@ -11,32 +12,31 @@
   </head>
   <body>
    <div id="navbar">
-            <a href="#landing">Home</a>
+             <%= link_to "Home", '/'%>
              |
-             <a href="#about-header">About</a>
+             <%= link_to "About", '/pages/about'%>
              |
-             <a href="#portfolio-header">Categories</a>
+             <%= link_to "Categories", '/'%>
              |
-             <a href="#contact">Contact</a>
+             <%= link_to "Contact", '/pages/contact'%>
   </div>
     
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
+  
     <%= yield %>
   </body>
-<footer>
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
+<%# <footer> %>
+<%# <% if user_signed_in? %> 
+  <%# <li> %>
+  <%# <%= link_to('Logout', destroy_user_session_path, method: :delete) %>         
+  <%# </li> %>
+<%# <% else %> 
+  <%# <li> %>
+  <%# <%= link_to('Login', new_user_session_path)  %>   
+  <%# </li> %>
+<%# <% end %> 
 
-<% if user_signed_in? %>
-<%= link_to('Profile', "/profiles/#{current_user.id}/edit") %>
-<% end %>
-</footer>
-</html>
+<%# <% if user_signed_in? %> 
+<%# <%= link_to('Profile', "/profiles/#{current_user.id}/edit") %> 
+<%# <% end %> 
+<%# </footer> %>
+<%# </html> %>
