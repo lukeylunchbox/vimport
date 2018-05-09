@@ -89,8 +89,7 @@
 </p>
 
 <% if @proposal.url %>
-<%= content_tag(:iframe, '', src: @proposal.url, 
-                   width: 560, height: 315, frameborder: 0) %>
+<iframe width="1000" height="800", sandbox="allow-forms allow-same-origin allow-scripts" src="<%= @proposal.url %>"</iframe>
 <%end%>
 
 
