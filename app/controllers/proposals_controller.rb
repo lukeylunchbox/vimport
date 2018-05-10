@@ -22,31 +22,30 @@ class ProposalsController < ApplicationController
     
   end
 
-  def charge
-  @amount = (Order.where(user_id: current_user.id).last.order_quantity)*(@proposal.cost_per_unit).to_i
-  customer = Stripe::Customer.create(
-    email: params[:stripeEmail],
-    source: params[:stripeToken]
-  )
-#  current_user.charge_identifier = customer.id
+    def charge
+        @amount = (Order.where(user_id: current_user.id).last.order_quantity)*(@proposal.cost_per_unit).to_i
+        customer = Stripe::Customer.create(
+          email: params[:stripeEmail],
+          source: params[:stripeToken]
+        )
 
-    if current_user.save
-    charge = Stripe::Charge.create(
-    customer: customer.id,
-    amount:  @amount*100,
-    description: Proposal.find(params[:id]).description,
-    currency: 'aud')
-  # current_users.charges << Charge.new(charge_id: charge.id)
+      if current_user.save
+        charge = Stripe::Charge.create(
+        customer: customer.id,
+        amount:  @amount*100,
+        description: Proposal.find(params[:id]).description,
+        currency: 'aud')
+      # current_users.charges << Charge.new(charge_id: charge.id)
 
-  flash[:notice] = 'Payment Made'
-  Order.last.update_columns(charge_identifier: "Paid")
-  redirect_to '/'
-          else 
+        flash[:notice] = 'Payment Made'
+        Order.last.update_columns(charge_identifier: "Paid")
+        redirect_to '/'
+      else 
         flash[:notice] = 'Error'
         redirect_back fallback_location: '/'
         Order.where(user_id: current_user.id).last.destroy
-          end
-        end        
+      end
+    end        
         # rescue Stripe::CardError => e
         # flash[:error] = e.message
         # redirect_back fallback_location: '/'
@@ -55,24 +54,24 @@ class ProposalsController < ApplicationController
     @orders = Order.all
     @profile = Profile.where(user_id: current_user.id).last.ship_street_number
     if Profile.where(user_id: current_user.id).exists?
-     if @profile != ""
-        if  params[:order_quantity].to_f < Proposal.find(params[:id]).min_order_quantity
-          flash[:notice] = '********  Error, Your order is below the minimum order quantity *********'
-        end
+      if @profile != ""
+          if  params[:order_quantity].to_f <= Proposal.find(params[:id]).min_order_quantity
+            flash[:notice] = '********  Error, Your order is below the minimum order quantity *********'
+          end
 
-        if params[:order_quantity].to_f >= Proposal.find(params[:id]).min_order_quantity && 
-          params[:order_quantity].to_f <= Proposal.find(params[:id]).full_order_quantity - 
-          Order.where(proposal_id: Proposal.find(params[:id])).sum(:order_quantity)
-          @order = Order.create!([{user_id: current_user.id , proposal_id: params[:id], 
-          order_quantity: params[:order_quantity], charge_identifier: "Unpaid", amount_paid: (params[:order_quantity].to_f*Proposal.find(params[:id]).cost_per_unit)}])
-          ModelMailer.new_order_notification(@order).deliver_now
-          redirect_to request.referrer
-        else 
-          flash[:notice] = '********  Error, insufficient quantity remaining on proposal, please reduce your order *********'
-          redirect_to request.referrer
-        end
+          if params[:order_quantity].to_f >= Proposal.find(params[:id]).min_order_quantity && 
+              params[:order_quantity].to_f <= Proposal.find(params[:id]).full_order_quantity - 
+              Order.where(proposal_id: Proposal.find(params[:id])).sum(:order_quantity)
+              @order = Order.create!([{user_id: current_user.id , proposal_id: params[:id], 
+              order_quantity: params[:order_quantity], charge_identifier: "Unpaid", amount_paid: (params[:order_quantity].to_f*Proposal.find(params[:id]).cost_per_unit)}])
+              ModelMailer.new_order_notification(@order).deliver_now
+              redirect_to request.referrer
+          else 
+            flash[:notice] = '********  Error, insufficient quantity remaining on proposal, please reduce your order *********'
+            redirect_to request.referrer
+          end
       end
-      else
+    else
          flash[:notice] = '********   Please complete your profile before placing an order.   ********'
         redirect_to "/profiles/#{current_user.id}/edit"
     end   
