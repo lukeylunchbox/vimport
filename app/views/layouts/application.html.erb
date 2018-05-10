@@ -18,11 +18,15 @@
              |
              <%= link_to "About", '/pages/about'%>
              |
+             <% if user_signed_in? %>
              <%= link_to "Profile", "/profiles/#{current_user.id}/edit"%>
              |
+             <% else %>
+             <%= link_to('Login', new_user_session_path)  %>
+             |
+             <%end%>
              <%= link_to "Contact", '/pages/contact'%>
   </div>
-    
   
     <%= yield %>
   </body>

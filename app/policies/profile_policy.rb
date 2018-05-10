@@ -3,6 +3,11 @@ class ProfilePolicy < ApplicationPolicy
     end
 
     def show?
+        @user == record.user
+    end
+
+    def index?
+        @user == record.user
     end
 
     def edit?

@@ -237,7 +237,6 @@ th {
      }
   }
 
-
 .buy {
     display: flex;
     justify-content: center;
@@ -294,4 +293,9 @@ justify-content: center;
     justify-content: center;
     flex-direction: column;
     padding-left: 20px;
+}
+
+.new-proposal{
+    padding-left: 20px;
+    padding-bottom: 20px;
 }

@@ -1,10 +1,11 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  after_action :verify_authorized, only: [:update, :destroy]
+  after_action :verify_authorized, only: [:update, :destroy, :index]
 
   # GET /profiles
   # GET /profiles.json
   def index
+    authorize @profile
     @profiles = Profile.all
   end
 
@@ -13,6 +14,7 @@ class ProfilesController < ApplicationController
   def show
     @profiles = Profile.all
     @orders = Order.all
+    authorize @profile
   end
 
   # GET /profiles/new
