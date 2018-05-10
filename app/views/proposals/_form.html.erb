@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+<div class="p-form">
   <div class="field">
     <%= form.label :product_name %>
     <%= form.text_field :product_name, id: :proposal_product_name %>
@@ -27,20 +28,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :weight_per_unit %>
+    <%= form.label "weight_per_unit (kg)" %>
     <%= form.text_field :weight_per_unit, id: :proposal_weight_per_unit %>
   </div>
 
   <div class="field">
     <%= form.label :min_order_quantity %>
-    <%= form.number_field :min_order_quantity, id: :proposal_min_order_quantity %>
+    <%= form.text_field :min_order_quantity, id: :proposal_min_order_quantity %>
   </div>
-
   <div class="field">
     <%= form.label :full_order_quantity %>
-    <%= form.number_field :full_order_quantity, id: :proposal_full_order_quantity %>
+    <%= form.text_field :full_order_quantity, id: :proposal_full_order_quantity %>
   </div>
-
   <div class="field">
     <%= form.label :eta %>
     <%= form.text_field :eta, id: :proposal_eta %>
@@ -48,53 +47,30 @@
 
 <div class="field">
  <%= form.hidden_field :img1, value: @proposal.cached_img1_data %>
- <%= form.file_field :img1 %>
+ <%= form.file_field :img1, class: "ui-button" %>
 </div>
 
 <div class="field">
  <%= form.hidden_field :img2, value: @proposal.cached_img2_data %>
- <%= form.file_field :img2 %>
+ <%= form.file_field :img2, class: "ui-button" %>
 </div>
 
 <div class="field">
  <%= form.hidden_field :img3, value: @proposal.cached_img3_data %>
- <%= form.file_field :img3 %>
+ <%= form.file_field :img3, class: "ui-button" %>
 </div>
-
+</br>
  <div class="field">
     <%= form.label :url %>
     <%= form.text_field :url, id: :proposal_url %>
   </div>
 
-
-
-
-  <%# <div class="field"> %>
-    <%# <%= form.label :"Image" %> 
-    <%# <%= form.text_area :img1_data, id: :proposal_img1_data %> 
-  <%# </div> %>
-
-  <%# <div class="field"> %>
-    <%# <%= form.label :"Image 2" %> 
-    <%# <%= form.text_area :img2_data, id: :proposal_img2_data %> 
-  <%# </div> %>
-
-  <%# <div class="field"> %>
-    <%# <%= form.label :"Image 3" %> 
-    <%# <%= form.text_area :img3_data, id: :proposal_img3_data %> 
-  <%# </div> %>
-
-  <%# <div class="field"> %>
-    <%# <%= form.label :Category_id %> 
-    <%# <%= form.text_field :Category_id, id: :proposal_Category_id %> 
-  <%# </div> %>
-  
   <div class="field">
   <%= form.label "Category" %>
   <%= form.collection_select(:category_id, Category.all, :id, :label) %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
+    <%= form.submit "Submit"%>
 <% end %>
+</div>

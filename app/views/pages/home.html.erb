@@ -1,12 +1,13 @@
 <div class="hero">
 <div class="title">
-<h1>Vimport</h1>
+<h1 class="animated fadeInUp">Vimport</h1>
 </div>
 </div>
  <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
 <section id="home">
 <h2>Categories</h2>
+<div>
 <div class = "category">
  <%# link_to "Machinery", all_proposals_with_category_path(category: 1)%>
  
@@ -30,6 +31,7 @@
 
 <%# <%= link_to "Automotive and Motorcycles", all_proposals_with_category_path(category: 8)%> 
 <%= link_to image_tag('car-parts.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 8), title: 'Automotive & Motorcycles' %>
+</div>
 </div>
 
 <%# <div class = "category-title">
@@ -94,8 +96,9 @@
  </div> 
     <% end %>
 </div>
-<footer>
+<footer class="footer">
 <%= link_to "About", '/pages/about'%>
+|
 <%= link_to "Contact", '/pages/contact' %>
 </footer>
 </section>

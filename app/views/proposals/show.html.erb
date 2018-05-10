@@ -104,8 +104,6 @@
 </div>
 
 
-
-
 <% elsif Order.last.created_at < (Time.now - 5.second) %>
 
 <p>
@@ -194,5 +192,7 @@
 </div>
  
 <%end%>
-<%= link_to 'Back', "/all_proposals/#{@proposal.category_id}" %> |
+<div class="footer">
+<%= link_to 'Back', "/all_proposals/#{@proposal.category_id}" %>
+</div>
 </div>

@@ -266,3 +266,24 @@ display: flex;
 justify-content: center;
 }
 
+.p-form{
+    max-width: 500px;
+    align-content: center;
+    padding-left: 20px;
+    padding: 30px;
+}
+
+.ui-button{
+    font-size: 1em;
+    padding: 5px;
+    width: 300px;
+}
+
+#send{
+    margin: 0;
+}
+
+.footer{
+    padding-left: 20px;
+    padding-bottom: 20px;
+}

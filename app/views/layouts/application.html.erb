@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "https://checkout.stripe.com/v3/checkout/button.css"%>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   </head>
   <body>
    <div id="navbar">
@@ -16,7 +17,7 @@
              |
              <%= link_to "About", '/pages/about'%>
              |
-             <%= link_to "Categories", '/'%>
+             <%= link_to "Profile", "/profiles/#{current_user.id}/edit"%>
              |
              <%= link_to "Contact", '/pages/contact'%>
   </div>
