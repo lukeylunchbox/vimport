@@ -2,10 +2,11 @@
 <html>
   <head>
   <link href="https://fonts.googleapis.com/css?family=Play|Roboto+Slab" rel="stylesheet">
+  <%# <script type="text/javascript" src="http://www.marinetraffic.com/js/embed.js"></script> %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Vimport</title>
     <%= csrf_meta_tags %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "https://checkout.stripe.com/v3/checkout/button.css"%>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +14,7 @@
   </head>
   <body>
    <div id="navbar">
-             <%= link_to "Home", '/'%>
+             <%= link_to "Home", root_path %>
              |
              <%= link_to "About", '/pages/about'%>
              |

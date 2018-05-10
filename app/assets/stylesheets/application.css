@@ -207,6 +207,8 @@ th {
     color: white;
 }
 
+
+
 @media(max-width: 1200px){
     .title{
        font-size: 4em;
@@ -235,6 +237,11 @@ th {
      }
   }
 
+  @media(min-width: 768px){
+    .icon{
+        width: 30px !important;
+        height: 30px !important;
+     }
 
 .buy {
     display: flex;
@@ -286,4 +293,11 @@ justify-content: center;
 .footer{
     padding-left: 20px;
     padding-bottom: 20px;
+}
+
+.tracking {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 20px;
 }

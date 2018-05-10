@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <p>.</p>
+<div class="tracking">
 <p>
   <strong>First name:</strong>
   <%= @profile.first_name %>
@@ -81,10 +82,48 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @profile.user %>
+  <strong>Order:</strong>
+  <%= Order.last.order_quantity %>
 </p>
 
+<% if Order.where(user_id: current_user.id).exists?%>
+
+<h2> Your Orders </h2>
+ 
+<% Order.where(user_id: current_user.id).last(6).each do |x| %>
+<p>
+<p>Order Placed at:</p>
+<%= x.created_at %>
+</p>
+
+<p>Product</p>
+<% Proposal.where(id: x.proposal_id).each do |p| %>
+<%= p.product_name %>
+<%end%>
+<p>
+Amount paid: $
+<%= x.amount_paid %>
+</p>
+
+<p>
+ETA:
+<%= Proposal.where(id: x.proposal_id).last.eta %>
+</p>
+
+<p>Container Location:</p>
+<script type="text/javascript"> width='100%';
+	height='450';	
+  border='1';	
+  shownames='true';	
+  zoom='9';
+  maptype='0';	
+  OpenStreetMap trackvessel='566748000';	
+ </script><script type="text/javascript" src="//www.marinetraffic.com/js/embed.js"></script>
+</br>
+</br>
+<%end%>
+<%end%>
+</div>
 <% if policy(@profile).update? %>
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%end%>

@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @profiles = Profile.all
+    @orders = Order.all
   end
 
   # GET /profiles/new

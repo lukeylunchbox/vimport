@@ -7,10 +7,11 @@
    <p class="alert"><%= alert %></p>
 <section id="home">
 <h2>Categories</h2>
+
+
 <div class="animated flipInX">
 <div class = "category">
- <%# link_to "Machinery", all_proposals_with_category_path(category: 1)%>
- 
+ <%# link_to "Machinery", all_proposals_with_category_path(category: 1)%> 
 <%= link_to image_tag('robotic-arm.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 1), title: 'Machinery' %>
 <%# <%= link_to "Building Materials", all_proposals_with_category_path(category: 2)%> 
 <%= link_to image_tag('welder.svg', width: '64', height: '60'), all_proposals_with_category_path(category: 2), title: 'Building Materials' %>
