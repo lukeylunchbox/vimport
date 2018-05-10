@@ -250,8 +250,8 @@ th {
 
 .profile-form{
     display: flex;
-    justify-content: center;  
-    flex-direction: column;  
+    justify-content: center;   
+    flex-direction: column;   
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 30px;
@@ -298,4 +298,40 @@ justify-content: center;
 .new-proposal{
     padding-left: 20px;
     padding-bottom: 20px;
+}
+
+.sub-title{
+    padding: 60px 60px;
+}
+
+.iframe{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wrapper p{
+    display: block;
+    text-align: center;
+    margin: 8px;
+}
+
+.wrapper iframe{
+    max-width: 600px;
+    align-self: center;
+}
+
+@media(max-width: 1400px){
+    .wrapper iframe{
+        max-width: 400px;
+     }
+  }
+
+@media(max-width: 800px){
+    .wrapper iframe{
+        max-width: 380px;
+     }
+  }
+
+.order-heading{
+    padding: 20px;
 }

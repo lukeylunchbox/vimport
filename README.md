@@ -111,7 +111,7 @@ After an order is placed and payment was successful, the user receives an order 
 - iframes display the original advertisement from Alibaba or 1688.com
 - Logic tests if orders meet minimum order quantity as set by proposer before they can be placed
 - Logic tests if user has updated their shipping address before order can be placed
-- Running total of items remaining against each proposal and logic tests if there is enough remaining before order can be        placed
+- Running total of items remaining against each proposal and logic tests if there is enough remaining before order can be placed.
 - Authorisation and Authentication of users
 - Users can place multiple proposals and multiple orders simultaniously
 
@@ -137,6 +137,14 @@ Apart from that, usability was great. No problems and no questions needed.
 ### Mobile View
 ![Mobile Landing](/app/assets/images/mobile-landing.png)
 
+
+### Optimizing
+
+After getting an initial BAD rating from Google's page speed review app, I knew I needed to do some optimizing.
+
+With a little bit of guide following, and the help of some optimizing sites such as Optimizilla, I was able to bring that up to a Good rating.
+
+![Google-review](/app/assets/images/google-review.png)
 
 ### Future Development 
 

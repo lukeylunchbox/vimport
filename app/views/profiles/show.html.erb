@@ -86,19 +86,21 @@
   <%= Order.last.order_quantity %>
 </p>
 
+
 <% if Order.where(user_id: current_user.id).exists?%>
 
-<h2> Your Orders </h2>
+<h2 class="order-heading"> Your Orders </h2>
  
 <% Order.where(user_id: current_user.id).last(6).each do |x| %>
-<p>
+<div class="wrapper">
+<div class="iframe"></div>
 <p>Order Placed at:</p>
-<%= x.created_at %>
-</p>
+<p><%= x.created_at %></p>
+
 
 <p>Product</p>
 <% Proposal.where(id: x.proposal_id).each do |p| %>
-<%= p.product_name %>
+<p><%= p.product_name %></p>
 <%end%>
 <p>
 Amount paid: $
@@ -121,10 +123,11 @@ ETA:
  </script><script type="text/javascript" src="//www.marinetraffic.com/js/embed.js"></script>
 </br>
 </br>
+</div>
+</div>
 <%end%>
 <%end%>
 </div>
-
 <% if policy(@profile).update? %>
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%end%>
