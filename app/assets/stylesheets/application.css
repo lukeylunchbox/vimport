@@ -237,11 +237,6 @@ th {
      }
   }
 
-  @media(min-width: 768px){
-    .icon{
-        width: 30px !important;
-        height: 30px !important;
-     }
 
 .buy {
     display: flex;
@@ -267,8 +262,7 @@ h3{
  padding-bottom: 15px;
 }
 
-.frame
-{
+.frame {
 display: flex;
 justify-content: center;
 }
