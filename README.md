@@ -56,7 +56,7 @@ Instead of abandoning it, I created a media query to render this image on a phon
 
 As for fonts, I decided to use Play for my heading title and navbar, and Roboto Slab for content. They seemed to pair quite well together.
 
-I left the colour choice up to a Chrome palete selector extension run on a picture of a container ship I really liked.
+I left the colour choice up to a Chrome palette selector extension run on a picture of a container ship I really liked.
 
 Simple grey and black with a bright, highlighting yellow.
 
@@ -113,7 +113,7 @@ After an order is placed and payment was successful, the user receives an order 
 - Logic tests if user has updated their shipping address before order can be placed
 - Running total of items remaining against each proposal and logic tests if there is enough remaining before order can be placed.
 - Authorisation and Authentication of users
-- Users can place multiple proposals and multiple orders simultaniously
+- Users can place multiple proposals and multiple orders simultaneously
 
 
 ### Planning & User testing
@@ -150,6 +150,4 @@ With a little bit of guide following, and the help of some optimizing sites such
 
 With more time available, I'd like to create the proposed live update messaging service to allow proposers to communicate with users and vice versa. 
 
-I'd also like to offer a selection of different items with each proposal as opposed to the current one item.
-
-It is very easy for Chinese factories to pack multiple items in one container as long as they are produced at the same place.
+I'd also like to offer a selection of different items with each proposal as opposed to the current one item as is very easy for Chinese factories to pack multiple items in one container as long as they are produced at the same place.
