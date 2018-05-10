@@ -2,17 +2,17 @@
 <p id="notice"><%= notice %></p>
 <div class="show">
 <div class="buy">
-<%if Order.exists?%>
-<%if Order.where(user_id: current_user.id).last.created_at > (Time.now - 10.seconds) && Order.where(user_id: current_user.id).last.order_quantity >= @proposal.min_order_quantity %>
-  <% if user_signed_in? %>
-    <%= render 'charge_form', Proposal: @proposal, user: current_user %>
-  <% else%>
-  <div class="buy-button">
-    <%= link_to new_user_registration_path, class: 'stripe-button-el' do %>
-    <span style="display: block; min-height: 30px;">Pay Now</span>
-    </div>
-  <%end%>
+<%if Order.where(id: current_user.id).exists?%>
+  <%if Order.where(user_id: current_user.id).last.created_at > (Time.now - 10.seconds) && Order.where(user_id: current_user.id).last.order_quantity >= @proposal.min_order_quantity %>
+    <% if user_signed_in? %>
+      <%= render 'charge_form', Proposal: @proposal, user: current_user %>
+    <% else%>
+    <div class="buy-button">
+      <%= link_to new_user_registration_path, class: 'stripe-button-el' do %>
+      <span style="display: block; min-height: 30px;">Pay Now</span>
+      </div>
     <%end%>
+      <%end%>
 <%end%>
 
 <%end%>
