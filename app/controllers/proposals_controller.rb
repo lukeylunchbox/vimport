@@ -60,7 +60,7 @@ class ProposalsController < ApplicationController
           flash[:notice] = '********  Error, Your order is below the minimum order quantity *********'
         end
 
-        if params[:order_quantity].to_f > Proposal.find(params[:id]).min_order_quantity && 
+        if params[:order_quantity].to_f >= Proposal.find(params[:id]).min_order_quantity && 
           params[:order_quantity].to_f <= Proposal.find(params[:id]).full_order_quantity - 
           Order.where(proposal_id: Proposal.find(params[:id])).sum(:order_quantity)
           @order = Order.create!([{user_id: current_user.id , proposal_id: params[:id], 
@@ -75,7 +75,7 @@ class ProposalsController < ApplicationController
       else
          flash[:notice] = '********   Please complete your profile before placing an order.   ********'
         redirect_to "/profiles/#{current_user.id}/edit"
-      end   
+    end   
   end
 
   # GET /proposals/new

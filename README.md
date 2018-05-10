@@ -54,8 +54,17 @@ I chose not to put the category title under the icons because I believe this def
 I absolutely loved the birds-eye view of a cargo ship I found online. However after I resized the browser to desktop view, the image didn't suit. 
 Instead of abandoning it, I created a media query to render this image on a phone-sized resolution, but render a larger image on any screen larger. 
 
+As for fonts, I decided to use Play for my heading title and navbar, and Roboto Slab for content. They seemed to pair quite well together.
+
+I left the colour choice up to a Chrome palete selector extension run on a picture of a container ship I really liked.
+
+Simple grey and black with a bright, highlighting yellow.
+
 
 ### User Stories
+
+I gathered a group of friends up to get information from them as to what they like to see usability wise in an app.
+
 
 ![Trello](/app/assets/images/trello.png)
 
@@ -92,8 +101,47 @@ After an order is placed and payment was successful, the user receives an order 
 * Mail-gun - mailer
 * Country-select
 
+### Current Features:
+
+- Multiple users are able to both post proposals and place orders (2-sided market place)
+- Accept payments from any credit card in Australia and provide proof of purchase and order-logging emails
+- Picture uploading via Shrine
+- Live contact form
+- Ship tracking attached to user profiles
+- iframes display the original advertisement from Alibaba or 1688.com
+- Logic tests if orders meet minimum order quantity as set by proposer before they can be placed
+- Logic tests if user has updated their shipping address before order can be placed
+- Running total of items remaining against each proposal and logic tests if there is enough remaining before order can be        placed
+- Authorisation and Authentication of users
+- Users can place multiple proposals and multiple orders simultaniously
+
+
+### Planning & User testing
+
+Trello was a great tool to manage the build process. I relied on it heavily during the initial process of planning and design.
+I have also half-filled a notebook with sketches and planning as I often like to paper my ideas.
+
+![ERD](/app/assets/images/plan.jpg)
+
+I asked a few fellow students to try out my app. The results were mixed when it came to the icon interpretation on the homepage.
+
+Consequently, I amended the icons to be more identifiable to users with much better results.
+
+Apart from that, usability was great. No problems and no questions needed. 
+
+
+
+### Desktop View
+![Desktop Landing](/app/assets/images/landing.png)
+
+### Mobile View
+![Mobile Landing](/app/assets/images/mobile-landing.png)
+
+
 ### Future Development 
 
 With more time available, I'd like to create the proposed live update messaging service to allow proposers to communicate with users and vice versa. 
 
-I'd also like to extend the confirmation emails to include when an order is dispatched from China, as well as live tracking of the container from Marinetraffic.com's API service.
+I'd also like to offer a selection of different items with each proposal as opposed to the current one item.
+
+It is very easy for Chinese factories to pack multiple items in one container as long as they are produced at the same place.
