@@ -147,29 +147,6 @@
   <%= @proposal.eta %>
 </p>
 
-
-<p> 
-  <%if @proposal.img1_url%>
-  <%= image_tag @proposal.img1_url, size: '500x300'%>
-  <%else%>
-  "No image"
-  <%end%>
-</p>
-
-<p>
-  <%if @proposal.img2_url%>
-  <%= image_tag @proposal.img2_url, size: '500x300' %>
-  <%else%>
-  <%end%>
-</p>
-
-<p>
-  <%if @proposal.img3_url%>
-  <%= image_tag @proposal.img3_url, size: '500x300' %>
-  <%else%>
-  <%end%>
-</p>
-
 <p>
   <strong>Description:</strong>
   <%= @proposal.description %>
