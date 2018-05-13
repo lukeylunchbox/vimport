@@ -379,3 +379,8 @@ justify-content: center;
         max-width: 400px;
      }
   }
+
+  .refresh{
+      display: flex;
+      justify-content: center;
+  }

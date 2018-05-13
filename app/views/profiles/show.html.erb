@@ -112,7 +112,11 @@
     <%= Proposal.where(id: x.proposal_id).last.eta %>
   </p>
 
+
 <p>Container Location:</p>
+<div class="refresh">
+<%= button_to "Press to update", profile_path, :method => :get %>
+</div>
   <script type="text/javascript"> width='100%';
     height='450';	
     border='1';	
