@@ -96,6 +96,9 @@
   <p>Order Placed at:</p>
   <p><%= x.created_at %></p>
 
+  <p>Order Quantity:
+<%= x.order_quantity %></p>
+
 <% Proposal.where(id: x.proposal_id).each do |p| %>
   <p><%= p.product_name %></p>
 <%end%>
