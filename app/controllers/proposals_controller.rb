@@ -12,7 +12,7 @@ class ProposalsController < ApplicationController
   def show
     @proposals = Proposal.where(category_id: params[:category])
     @orders = Order.where(proposal_id: @proposal.id)
-    @items_remaining = @proposal.full_order_quantity - @orders.sum(:order_quantity)
+    @items_remaining = @proposal.full_order_quantity - Order.where(proposal_id: current_user.id).sum(:order_quantity)
     if Order.where(user_id: current_user.id).exists?
       if Order.where(user_id: current_user.id).last.created_at < (Time.now - 10.seconds) && 
          Order.where(user_id: current_user.id).last.charge_identifier=="Unpaid"
