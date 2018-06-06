@@ -46,7 +46,7 @@ As you can see from my design below, I really wanted to go with a maritime theme
 I created a background image by gluing a photo of the ocean and a photo of some dock cranes together. 
 This image was reused in most pages of the app.
 
-![Moodboard](/app/assets/images/figma.png)
+![Moodboard](/app/assets/images/moodboard.png)
 
 I also wanted the site to be simple. That's why I chose icons for primary navigation.
 I chose not to put the category title under the icons because I believe this defeats the purpose of having icons in the first place. Although this could potentially cause some confusion to users who cannot recognise a category icon, after the first visit to the site they will be fine. I also put the title as a hover attribute, in case users need help identifying a category or if a screen reader needs to be used for visually impaired users. 
@@ -59,6 +59,8 @@ As for fonts, I decided to use Play for my heading title and navbar, and Roboto 
 I left the colour choice up to a Chrome palette selector extension run on a picture of a container ship I really liked.
 
 Simple grey and black with a bright, highlighting yellow.
+
+![Figma](/app/assets/images/figma.png)
 
 
 ### User Stories
