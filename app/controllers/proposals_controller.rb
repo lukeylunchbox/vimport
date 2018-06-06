@@ -11,6 +11,7 @@ class ProposalsController < ApplicationController
   # GET /proposals/1.json
   def show
     @proposals = Proposal.where(category_id: params[:category])
+    @order = Order.where(user_id: current_user.id)
     @orders = Order.where(proposal_id: @proposal.id)
     @items_remaining = @proposal.full_order_quantity - Order.where(proposal_id: current_user.id).sum(:order_quantity)
     if Order.where(user_id: current_user.id).exists?
