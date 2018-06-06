@@ -107,14 +107,15 @@ After an order is placed and payment was successful, the user receives an order 
 - Accept payments from any credit card in Australia and provide proof of purchase and order-logging emails
 - Picture uploading via Shrine
 - Live contact form
-- Ship tracking attached to user profiles
 - iframes display the original advertisement from Alibaba or 1688.com
 - Logic tests if orders meet minimum order quantity as set by proposer before they can be placed
 - Logic tests if user has updated their shipping address before order can be placed
 - Running total of items remaining against each proposal and logic tests if there is enough remaining before order can be placed.
 - Authorisation and Authentication of users
 - Users can place multiple proposals and multiple orders simultaneously
+- Container tracking through Marine Traffic API attached to user orders (accessible through profiles)
 
+![Container Tracking](/app/assets/images/container-tracking.png)
 
 ### Planning & User testing
 
