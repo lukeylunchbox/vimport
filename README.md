@@ -60,7 +60,7 @@ I left the colour choice up to a Chrome palette selector extension run on a pict
 
 Simple grey and black with a bright, highlighting yellow.
 
-![Figma](/app/assets/images/figma.png)
+![Figma](/app/assets/images/figma2.png)
 
 
 ### User Stories
